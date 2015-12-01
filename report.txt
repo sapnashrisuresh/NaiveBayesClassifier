@@ -1,0 +1,272 @@
+Assignment 2 : Text Classification (Spam and Sentiment Data) using Naive Bayesian Classification, SVM and maximum entropy modeling.
+
+Question 1:  Split the labeled data using 75% for training and 25% for development and report the precision, recall and F1 score for SPAM, HAM, POSITIVE and NEGATIVE for the three machine learning techniques.
+Answer the following questions: In each case, which technique performs best? Based on class discussions, why do think this is? How does performance differ between SPAM detection and sentiment analysis (POSITIVE v. NEGATIVE)?
+
+i) Naive Bayesian
+
+Pos/Neg (75-25)
+Values for Sentiment (POSITIVE):
+Precision = 86.66899930020993  Recall = 80.03231017770598  F-Score= 83.2185452712918
+
+Values for Sentiment (NEGATIVE):
+Precision = 81.78066037735849  Recall = 87.92393026941363  F-Score= 84.74110279517336
+
+Spam/Ham (75-25)
+Values for Spam Data (SPAM):
+Precision = 97.75768535262206  Recall = 98.6856516976999  F-Score= 98.21947674418605
+
+Values for Spam Data (HAM):
+Precision = 98.7078248384781  Recall = 97.79516358463727  F-Score= 98.24937477670598
+
+ii) SVM
+
+Pos/Neg (75-25)
+Values for SVM (POSITIVE): 
+Precision = 85.23489932885906 Recall = 89.20817369093231 F-Score= 87.17628705148206 
+
+Values for SVM (NEGATIVE): 
+Precision = 88.6271870794078 Recall = 84.47722899294419 F-Score= 86.50246305418719 
+
+Spam/Ham (75-25)
+Values for SVM (SPAM): 
+Precision = 93.08005427408412 Recall = 99.13294797687861 F-Score= 96.0111966410077 
+
+Values for SVM (HAM): 
+Precision = 99.07798693814829 Recall = 92.6697808120733 F-Score= 95.76680282213144 
+
+iii) MegaM
+
+Pos/Neg (75-25)
+Values for MegaM (POSITIVE):
+Precision = 87.32261116367077  Recall = 88.4947267497603  F-Score= 87.90476190476191
+
+Values for MegaM (NEGATIVE):
+Precision = 88.30789217278337  Recall = 87.11951297661005  F-Score= 87.70967741935483
+
+Spam/Ham (75-25)
+Values for MegaM (POSITIVE/SPAM):
+Precision = 98.22051639916259  Recall = 99.29453262786596  F-Score= 98.7546044553587
+
+Values for MegaM (NEGATIVE/HAM):
+Precision = 99.25512104283054  Recall = 98.1222385861561  F-Score= 98.68542862432884
+
+In both cases (spam filtering and sentiment analysis), MegaM Maximum entropy model performs best. The Maximum Entropy classifier is similar to Naive Bayesian classifier, but rather than assuming the probability of each feature independently, the model finds weights for the features that maximize the likelihood of the training data and chooses a model that is consistent with all the facts. It also makes sure that the model is as uniform as possible, if not given any facts. Hence, it performs better and adapts better to the given data.
+
+As seen above, all the models perform better on SPAM detection than sentiment analysis. This could mainly be because SPAM classification is a more definite binary classification  problem than sentiment analysis. A lot of words in the SPAM dataset vocabulary have very high probability in SPAM class as opposed to HAM. Whereas, features in sentiment analysis have very close values in both classes and hence, making the decision of classification harder.
+
+Question 2: Use 25% of the data for training and use 75% for development and report the precision, recall and F1 score for SPAM, HAM, POSITIVE and NEGATIVE for the three machine learning techniques. 
+Answer the following questions: How much did performance drop for each of the machine learning techniques? Were some machine learning techniques more robust given a smaller training set? Is there a difference between SPAM detection and sentiment analysis?
+
+i) Naive Bayesian
+
+Pos/Neg (25-75)
+Values for Sentiment (POSITIVE):
+Precision = 86.49906890130353  Recall = 79.02179691653376  F-Score= 82.59154303495026
+
+Values for Sentiment (NEGATIVE):
+Precision = 80.57688521362472  Recall = 87.58694489031568  F-Score= 83.93580474798749
+
+Spam/Ham (25-75)
+Values for Spam Data (SPAM):
+Precision = 98.19529102426198  Recall = 97.43833017077799  F-Score= 97.81534615155664
+
+Values for Spam Data (HAM):
+Precision = 97.39319333816076  Recall = 98.16324048169322  F-Score= 97.77670079360273
+
+ii) SVM
+
+
+Spam/Ham (25-75)
+Values for SVM (POSITIVE):
+Precision = 83.29853862212944  Recall = 85.18360375747224  F-Score= 84.23052564914502
+
+Values for SVM (NEGATIVE):
+Precision = 84.86368593238822  Recall = 82.94606693668727  F-Score= 83.89391979301422
+
+Pos/Neg (25-75)
+Values for SVM (SPAM):
+Precision = 90.44053819444444  Recall = 99.19076520290373  F-Score= 94.6137692264033
+
+Values for SVM (HAM):
+Precision = 99.0856528169961  Recall = 89.32121212121213  F-Score= 93.95040479377829
+
+
+iii) MegaM
+
+Pos/Neg (25-75)
+Values for MegaM (POSITIVE):
+Precision = 86.05615826419911  Recall = 86.34083875787002  F-Score= 86.19826346348479
+
+Values for MegaM (NEGATIVE):
+Precision = 86.30723149336757  Recall = 86.02196396204286  F-Score= 86.16436161691675
+
+Spam/Ham (25-75)
+Values for MegaM (SPAM):
+Precision = 97.34011112424636  Recall = 98.77639155470249  F-Score= 98.05299196189341
+
+Values for MegaM (HAM):
+Precision = 98.7551867219917  Recall = 97.29469760731033  F-Score= 98.01950215008176
+
+How much did performance drop for each of the machine learning techniques? 
+Naive-Bayesian : ~1% drop in F-score
+SVM : ~2-3% drop in F-score
+MegaM : ~1% drop in F-score
+
+Were some machine learning techniques more robust given a smaller training set? 
+Yes, the entropy model performs the best even when trained with a small data set. The performance drop for SPAM filtering dropped by only 0.5% which is a remarkable performance given the reduction in training data. SVM shows the most decline in performance.
+
+Is there a difference between SPAM detection and sentiment analysis?
+Again, Sentiment analysis causes lesser decline in performance when training data is reduced. The performance of a model is based on how much of the vocabulary is covered by the training data, as well. If 25% of the data does a good job and covering most of the vocabulary for both the classes, then the performance of the system still remains intact. Performance based on the size of the dataset is mostly dependent on the quality of data provided to the learning model.
+
+
+Question 3: You will use all the labeled data to create models with the three machine learning techniques. You will then run these models on the unlabeled testing data and save the output. You will include the output in your bitbucket repository. 
+
+Files submitted :
+
+nblearn.py
+nbclassify.py
+
+spam.nb.model, sentiment.nb.model
+spam.svm.model, sentiment.svm.model
+spam.megam.model, sentiment.megam.model
+
+spam.nb.out, sentiment.nb.out
+spam.svm.out, sentiment.svm.out
+spam.megam.out, sentiment.megam.out
+
+Additional file submitted:
+preprocess_imdb.py
+preprocess_email.py
+preprocess_svm.py
+preprocess_megam.py
+postprocess_svm.py
+postprovess_megam.py
+performanceMeasure.py
+
+**********************************************************************************************
+
+Steps to execute each model on the given data and pre-processing involved:
+
+1. Naive bayes
+
+Sentiment Analysis:
+
+Files provided in HW: 
+labeledBow.feat-training data file
+sentiment_test.feat - test data file
+
+Pre-processing the Sentiment data:
+python3 preprocess_imdb.py labeledBow.feat sentiment_test.feat
+
+	1. Converts label of each rating : >= 7 (positive) or <= 4 (negative) - sentiment.nb.in
+	2. Add 1 to each feature for the training and test data - sentiment_test_update.feat
+	3. Split the dataset randomly into two files (75% and 25%) — sentiment.train75.in, sentiment.train25.in
+	4. Process each of those into development files without label - sentiment.test75.in, sentiment.test25.in
+	5. Store the labels in separate files to compute the performance measure of the model - sentiment.reference75.out, sentiment.reference25.out
+
+After preprocessing, execute the following commands to generate models and output for each stage. Check the performance measure for each stage.
+
+python3 nblearn.py sentiment.train75.in sentiment.nb.model
+python3 nbclassify.py sentiment.nb.model sentiment.test25.in > sentiment.nb.out
+python3 performanceMeasure.py sentiment.reference25.out sentiment.nb.out 1
+
+python3 nblearn.py sentiment.train25.in sentiment.nb.model
+python3 nbclassify.py sentiment.nb.model sentiment.test75.in > sentiment.nb.out
+python3 performanceMeasure.py sentiment.reference75.out sentiment.nb.out 1
+
+python3 nblearn.py sentiment.nb.in sentiment.nb.model
+python3 nbclassify.py sentiment.nb.model sentiment_test_update.feat > sentiment.nb.out
+
+
+SPAM filtering:
+
+Files provided in HW: 
+enron.vocab - vocabulary file for email data
+Bunch of EMAIL files. The program recursively looks for text files from the current directory and writes them into one training file with feature-value pairs. For test dataset, the program assumes “spam_or_ham_test” folder exists under the current directory.
+Assumption: All the training email data files end with “am.txt” and SPAM-files end with “spam.txt” and HAM-files with “ham.txt”.
+
+Pre-processing the Sentiment data:
+python3 preprocess_email.py enron.vocab spam.nb.in spam_test.nb.in
+
+	1. Convert the email data to a single file with features and values with labels - spam.nb.in
+	2. Convert the email test data to a single file with features and values - spam_test.nb.in
+	3. Split the dataset randomly into two files (75% and 25%) — spam.train75.in, spam.train25.in
+	4. Process each of those into development files without label - spam.test75.in, spam.test25.in
+	5. Store the labels in separate files to compute the performance measure of the model - spam.reference75.out, spam.reference25.out
+
+After preprocessing, execute the following commands to generate models and output for each stage. Check the performance measure for each stage.
+
+python3 nblearn.py spam.train75.in spam.nb.model
+python3 nbclassify.py spam.nb.model spam.test25.in > spam.nb.out
+python3 performanceMeasure.py spam.reference25.out spam.nb.out 2
+
+python3 nblearn.py spam.train25.in spam.nb.model
+python3 nbclassify.py spam.nb.model spam.test75.in > spam.nb.out
+python3 performanceMeasure.py spam.reference75.out spam.nb.out 2
+
+python3 nblearn.py spam.nb.in spam.nb.model
+python3 nbclassify.py spam.nb.model spam_test.nb.in  > spam.nb.out
+
+2. SVM
+
+Provide SPAM/Sentiment training and testing data files from the precious steps as input:
+
+python3 preprocess_svm.py spam.nb.in spam_test.nb.in
+
+Pre-process SVM:
+	1. Replace all the labels as per SVM requirements: (SPAM/POSITIVE with +1 , HAM/NEGATIVE with -1)
+	2. Append +1 label for the test data
+	3. Split the dataset randomly into two files (75% and 25%) 
+	4. Process each of those into development files with label=+1
+	5. Store the actual labels in separate files to compute the performance measure of the model
+
+python3 postprocess_svm.py sentiment.svm.out_original sentiment.svm.out
+
+Post-process SVM:
+	1. Replace the output labels (which range from -1 to +1) with SPAM/POSITIVE if >0 , HAM/NEGATIVE if <0
+
+
+To run SVM:
+./svm_learn sentiment.svm.in sentiment.svm.model
+
+./svm_classify sentiment_test.svm.in sentiment.svm.model sentiment.svm.out_original
+
+
+3. MegaM
+
+Provide SPAM/Sentiment training and testing data files from the precious steps as input:
+
+python3 preprocess_megam.py sentiment.nb.in sentiment_test_update.feat
+
+Pre-process MegaM:
+	1. Replace all the labels as per MegaM requirements: (SPAM/POSITIVE with 1 , HAM/NEGATIVE with 0) and replace all “:” with a space
+	2. Append “1” label for the test data and replace “:” with a space
+	3. Split the dataset randomly into two files (75% and 25%) 
+	4. Process each of those into development files with label=1
+	5. Store the actual labels in separate files to compute the performance measure of the model
+
+python3 postprocess_megam.py sentiment.megam.out_original sentiment.megam.out
+
+Post-process MegaM:
+	1. Replace the output labels (which is either 0 or 1 followed by probability value) with SPAM/POSITIVE if=1 , HAM/NEGATIVE if=0
+
+
+To run MegaM:
+
+./megam_i686.opt -fvals binary spam.megam.in > spam.megam.model
+
+ ./megam_i686.opt -fvals -predict spam.megam.model binary spam_test.megam.in > spam.megam.out_original
+
+
+4. Performance Measure
+
+Used to measure precision, recall and F-score to measure the performance of each model. The values are displayed as % for better comparison between models.
+
+To run the script, provide the reference results and the output of the current model, followed by an option (1:Sentiment Analysis, 2:SPAM filtering,
+3:SVM, 4:MegaM)
+
+python3 performanceMeasure.py sentiment.reference25.out sentiment25.nb.out 1
+
+It displays the performance result on the console.
+
